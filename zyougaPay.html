@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嫦娥支付</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        li {
+            position: relative;
+            display: none;
+            padding: 1rem;
+            margin-right: 2rem;
+            background-color: #a0c5cf93;
+            list-style: none;
+        }
+        img {
+            width: 100%;
+        }
+        li a {
+            position: absolute;
+            right: 1.2rem;
+            bottom: 1.2rem;
+        }
+        .zyougaContainer h5 {
+            display: none;
+        }
+        footer .btn {
+            padding: 0 1rem;
+            font-size: 1.5rem;
+        }
+    </style>    
+</head>
+
+<body>
+    <h1 class="text-center">嫦娥支付</h1>
+    <div class="container zyougaContainer">
+        <h3>已加入購物車的商品：</h3>
+        <h5>目前尚未選擇任何商品。</h5>
+        <div class=" d-md-block container">
+            <h2 class="h1 my-4">Albums</h2>
+            <ul class="row p-0">
+                <li class="mb-3 mb-md-0 col-10 col-md-3">
+                    <!-- 填滿class：bi-heart-fill -->
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>娥娥兮若泰山</h3>
+                    <p>與娥子可愛的外表形成反差，澎湃又帥氣的歌聲將帶領你到達全新的次元。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+                <li class="mb-3 mb-md-0 col-10 col-md-3">
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>如願以嫦</h3>
+                    <p>不需要多餘的技巧，詞句間全是感情。斷腸人千萬別聽嫦子的情歌。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+                <li class="mb-3 mb-md-0 col-10 col-md-3">
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>常訛</h3>
+                    <p>其實以上的商品都是假的，嫦娥姊妹根本沒有發行專輯。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+            </ul>
+
+            <h2 class="h1 my-4">Goods</h2>
+            <ul class="row p-0">
+                <li class="mb-3 mb-md-0 col-10 col-md-3">
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>腸子ASMR</h3>
+                    <p>嫦子腸子的聲音在你耳邊奏響安魂曲，頭頂星空將是你最安穩的搖籃。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+                <li class="mb-3 mb-md-0 col-10 col-md-3">
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>飛蛾</h3>
+                    <p>娥子養的飛蛾，牠會飛。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+                <li class="mb-3 mb-md-0 col-10 col-md-3">
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>告白</h3>
+                    <p>其實以上的商品都是假的，嫦娥姊妹根本沒有發行周邊。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <footer class="container">
+        <div class=" d-flex justify-content-between col-10">
+            <a class="h1" href="index.html#goods">Home</a>
+            <button id="pay" class="btn btn-primary" href="javascript:;">結帳</button>
+        </div>
+
+    </footer>
+    
+
+
+
+    <script>
+        $(function () {
+            let shoppingCar = localStorage.getItem('shoppingCar').split(',') || [];
+            let count = 0;
+            if(shoppingCar.length>0){
+                for(let i=0;i<shoppingCar.length;i++){
+                    if(shoppingCar[i]=='picked'){
+                        $(`.zyougaContainer li:eq(${i})`).fadeIn(100);
+                        count +=1 ;
+                    }
+                }
+            }
+            if(count==0){
+                $('.zyougaContainer h5').show();
+            }
+            $('#pay').click(function(){
+                if(count==0){
+                    alert('目前尚未選擇任何商品。');
+                }else{
+                    alert('非賣品哦。');
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

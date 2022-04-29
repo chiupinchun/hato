@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嫦娥姊妹——娛樂中學習的最佳選擇</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+        /* 共用 */
+        :root {
+            --headerHeight: 10vh;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            text-indent: 0;
+            font-family: 'cwTeXYen', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        a img {
+            width: 100%;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* class="mt-5 text-center" */
+        main article .h1 {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        /* 常用 */
+        .container {
+            max-width: 1280px;
+        }
+
+        .displayNone {
+            display: none;
+        }
+
+        /* 一般 */
+        /* 頂部 */
+        header {
+            position: fixed;
+            top: 0;
+            z-index: 10;
+            width: 100%;
+            height: var(--headerHeight);
+            line-height: var(--headerHeight);
+            background-color: #ccecf5a7;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        header nav img {
+            /* max-width: 200px; */
+            border-radius: 10px;
+        }
+
+        header nav h1 {
+            line-height: var(--headerHeight);
+        }
+
+        header nav ul {
+            display: flex;
+            margin-bottom: 0;
+            list-style: none;
+        }
+
+        header nav ul a {
+            display: inline-block;
+            padding: 0 1rem;
+            height: 100%;
+            color: black;
+        }
+
+        header nav ul a:hover {
+            color: rgb(30, 30, 30);
+        }
+
+        @media screen and (min-width: 768px) {
+            header nav ul a:hover {
+                background-color: #a1e7faa7;
+            }
+        }
+
+        header .phoneMenu {
+            font-size: 1.5rem;
+        }
+        header .phoneMenuLi {
+            background-color: #91cde077;
+        }
+
+        /* main */
+        .main1 {
+            margin-top: var(--headerHeight);
+            padding-bottom: 20px;
+            width: 100vw;
+            /* height: 632px; */
+            height: 63.5vh;
+
+            background: url(images/zyougaCover.png) no-repeat;
+            background-size: cover;
+            border-bottom: 5px solid #808080;
+            border-top: 5px solid #808080;
+        }
+
+        @media screen and (max-width: 767px) {
+            .main1 {
+                background: url(images/zyougaCover.png) no-repeat right;
+                background-size: cover;
+            }
+        }
+
+        main article {
+            height: 100%;
+        }
+
+        main article p {
+            /* position: absolute; */
+            font: normal 400 1.8rem 'cwTeXYen', sans-serif;
+        }
+
+        main article p.fir {
+            margin-left: 25%;
+        }
+
+        main article p.sec {
+            margin-left: 47%;
+        }
+
+        main article p.thi {
+            margin-left: 33%;
+        }
+
+        main article p.fou {
+            margin-left: 52%;
+        }
+
+        main article p.fif {
+            margin-left: 30%;
+        }
+
+        @media screen and (max-width: 767px) {
+            main article p {
+                font-size: 1.3rem;
+            }
+
+            main article p.fir {
+                margin-left: 10%;
+            }
+
+            main article p.thi {
+                margin-left: 15%;
+            }
+
+            main article p.fif {
+                margin: 0 auto;
+            }
+        }
+
+        /* main2 */
+        .main2 {
+            /* background-color: #e9faff; */
+            background-color: #DBB6B6;
+        }
+
+        .main2 article {
+            overflow: hidden;
+        }
+
+        .main2 article p {
+            text-indent: 4rem;
+        }
+
+        .main2 article>* {
+            margin: 1rem 0;
+        }
+
+        /* main3 */
+        .main3 {
+            padding-bottom: 3rem;
+            overflow: hidden;
+            background-color: #CCECF5;
+        }
+
+        @media screen and (max-width: 767px) {
+            .main3 {
+                /* background: url(images/zyougaCover.png) no-repeat; */
+                background-size: cover;
+            }
+
+            .main3 article.d-md-none {
+                height: 50vh;
+                line-height: 50vh;
+                text-align: center;
+            }
+        }
+
+        .main3 article figure h3 {
+            position: absolute;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 767px) {
+            .main3 ul {
+                margin: 0 auto;
+                padding: 0;
+            }
+
+            .main3 ul li {
+                margin-bottom: 1rem;
+            }
+        }
+
+        .main3 ul li {
+            position: relative;
+            padding: 1rem 1rem 3rem;
+            background-color: #a0c5cf;
+        }
+
+        .main3 ul li i {
+            position: absolute;
+            right: 1.2rem;
+            font-size: 1.5rem;
+            color: pink;
+        }
+
+        .main3 ul li img {
+            width: 100%;
+        }
+
+        .main3 ul li h3 {
+            font-weight: 600;
+        }
+
+        .main3 ul li p {
+            margin-bottom: 0;
+            font-size: 1.2rem;
+        }        
+
+        .main3 ul li a {
+            position: absolute;
+            right: 1.2rem;
+            bottom: 1.2rem;
+            color: blue;
+        }
+
+        /* footer */
+        footer {
+            background-color: #CCECF5;
+            height: 15rem;
+        }
+
+        footer article {
+            display: none;
+            overflow: hidden;
+            height: 100%;
+            background-color: rgb(240, 213, 240);
+        }
+
+        @media screen and (max-width: 767px) {
+            footer .container.d-flex {
+                justify-content: space-between;
+            }
+        }
+
+        footer article h3 {
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        /* darkness */
+        .darkness {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            z-index: 100;
+        }
+
+        .face {
+            position: absolute;
+            margin-bottom: 0;
+            color: red;
+            word-wrap: break-word;
+            font-size: 3rem;
+        }
+
+        .face span {
+            display: none;
+        }
+
+        .darkness>.col-2 {
+            display: none;
+            height: 200vh;
+            background-color: rgb(30, 21, 21);
+            border-radius: 0 0 50% 50%;
+        }
+
+        .messageFromDarkness {
+            position: absolute;
+            top: 8%;
+            text-align: center;
+            color: red;
+        }
+
+        .messageFromDarkness article {
+            display: none;
+            padding: 2rem;
+            /* display: inline-block; */
+            width: 28.1rem;
+            background-color: rgba(30, 21, 21, 0.879);
+            text-align: left;
+            font-size: 2rem;
+        }
+
+        .messageFromDarkness p {
+            display: none;
+        }
+
+        .messageFromDarkness button {
+            display: none;
+        }
+
+        @media screen and (max-width: 767px) {
+            .darkness {
+                right: 0;
+                margin-right: 0;
+            }
+
+            .face {
+                font-size: 2rem;
+            }
+
+            .messageFromDarkness article {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 頂端、導航欄 -->
+    <header>
+        <nav class="ps-3">
+            <h1>嫦娥姊妹</h1>
+            <ul class="d-none d-md-flex">
+                <li><a href="https://www.facebook.com/zyouga/">facebook</a></li>
+                <li><a href="#goods">周邊</a></li>
+                <li><a href="#goods">專輯</a></li>
+            </ul>
+            <ul class="d-block d-md-none text-end">
+                <a class="phoneMenu" href="javascript:;">▼</a>
+                <ul class="displayNone px-0">
+                    <li class="h1 mb-0 phoneMenuLi"><a href="https://www.facebook.com/zyouga/" target="_blank">facebook</a>
+                    </li>
+                    <li class="h1 mb-0 phoneMenuLi"><a href="#goods">周邊</a></li>
+                    <li class="h1 mb-0 phoneMenuLi"><a href="#goods">專輯</a></li>
+                </ul>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主內容 -->
+    <!-- main -->
+    <!-- cover照 -->
+    <main class="main1">
+        <article class="container d-flex flex-column justify-content-between">
+            <p class="fir">吟詩伴酒賞月桂，</p>
+            <p class="sec">悠然仰天望星輝。</p>
+            <p class="thi">學日語單字文法，</p>
+            <p class="fou">全都在嫦娥姊妹。</p>
+            <p class="fif">說是文學素養本身也不為過的虛擬偶像</p>
+        </article>
+    </main>
+    <!-- 品牌介紹 -->
+    <main class="main2">
+        <article class="container">
+            <h2 class="h1">嫦娥姊妹是甚麼？</h2>
+            <div class="row justify-content-between">
+                <p class="col-md-8 mt-5">嫦娥姊妹是於2018年9月24日成立的虛擬偶像姊妹。姊姊嫦子曾在日本從事餐飲業，雖說個性活潑，但不太喜歡上鏡頭。而妹妹娥子是個神祕的高中生。</p>
+                <img class="col-md-2" src="images/gakoPic.jpg" alt="粉專圖片" title="神秘的高中生">
+            </div>
+            <div class="row justify-content-between">
+                <p class="col-md-8 mt-5 order-md-2">
+                    起初嫦娥姊妹的活動內容以姊姊嫦子在日本生活所拍攝的照片居多，但2019年2月因個人生涯規劃回台，隔年嫦娥姊妹改變經營方針，活動內容轉型為日語教學類型。</p>
+                <img class="col-md-2 order-md-1" src="images/zyoukoOnAirplan.jpg" alt="粉專圖片" title="嫦子搭飛機">
+            </div>
+            <div class="row justify-content-between">
+                <p class="col-md-8 mt-5">
+                    不同於其他日語學習向的網站或頻道，嫦娥姊妹的教學方向為「教科書中學不到的日語」，例如網路用語，這種一般市面上的教科書不記載，但不學習便無法正確理解twitter或youtube動畫內容的知識。</p>
+                <img class="col-md-2" src="images/gakoInForest.jpg" alt="粉專圖片" title="娥子喝瀑布">
+            </div>
+            <div class="row justify-content-between">
+                <p class="col-md-8 mt-5 order-md-2">
+                    儘管目前嫦娥姊妹經紀人表示「真的沒梗了！所以サ終吧！」經由介紹日本網路用語「サ終（終止營運）」為偶像活動謝幕，但相信如果能獲得大家的聲援，她們一定能再次站上舞台的！</p>
+                <img class="col-md-2 order-md-1" src="images/managerEhe.png" alt="粉專圖片" title="經紀人：欸嘿">
+            </div>
+        </article>
+    </main>
+
+    <!-- 產品介紹 -->
+    <main id="goods" class="main3">
+        <article class=" d-md-block container">
+            <h2 class="h1 my-4">Albums</h2>
+            <ul class="row justify-content-around">
+                <li class="col-10 col-md-3">
+                <!-- 填滿class：bi-heart-fill -->
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>娥娥兮若泰山</h3>
+                    <p>與娥子可愛的外表形成反差，澎湃又帥氣的歌聲將帶領你到達全新的次元。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+                <li class="col-10 col-md-3">
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>如願以嫦</h3>
+                    <p>不需要多餘的技巧，詞句間全是感情。斷腸人千萬別聽嫦子的情歌。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+                <li class="col-10 col-md-3">
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>常訛</h3>
+                    <p>其實以上的商品都是假的，嫦娥姊妹根本沒有發行專輯。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+            </ul>
+
+            <h2 class="h1 my-4">Goods</h2>
+            <ul class="row justify-content-around">
+                <li class="col-10 col-md-3">
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>腸子ASMR</h3>
+                    <p>嫦子腸子的聲音在你耳邊奏響安魂曲，頭頂星空將是你最安穩的搖籃。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+                <li class="col-10 col-md-3">
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>飛蛾</h3>
+                    <p>娥子養的飛蛾，牠會飛。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+                <li class="col-10 col-md-3">
+                    <i class="bi bi-heart"></i>
+                    <img src="images/noSample.png" alt="">
+                    <h3>告白</h3>
+                    <p>其實以上的商品都是假的，嫦娥姊妹根本沒有發行周邊。</p>
+                    <a href="javascript:;">更多</a>
+                </li>
+            </ul>
+            <!-- <figure class="row position-relative justify-content-center align-items-center">
+                <img id="mainLemonPic" class="col-6" src="images/backGroundLemon.png">
+                <h3>因為沒有商品，所以放檸檬湊數（？）</h3>
+            </figure>
+            <div class="row justify-content-between">
+                <a class="lemonSwitch col-3 px-0" href="javascript:;"><img src="images/backGroundLemonOrigin.png"></a>
+                <a class="lemonSwitch col-3 px-0" href="javascript:;"><img src="images/backGroundLemon2Origin.png"></a>
+                <a class="lemonSwitch col-3 px-0" href="javascript:;"><img src="images/backGroundLemon3Origin.png"></a>
+            </div> -->
+        </article>
+        <!-- <article class="d-md-none h4">因為沒有商品，所以放張美照湊數（？）</article> -->
+        <h3 class="me-5 mt-5 text-end"><a class="text-primary" href="zyougaPay.html">確認購物車</a></h3>
+    </main>
+    <footer>
+        <article>
+            <h3>為了嫦娥姊妹的活動再開，你說給粉專按個讚合不合適呀？</h3>
+            <div class="container d-flex">
+                <button class="btn btn-primary offset-md-3" type="button"><a href="https://www.facebook.com/zyouga/"
+                        target="_blank">合適得不得了！</a></button>
+                <button id="fallIntoDarkness" class="btn btn-primary offset-md-3" type="button">下次一定</button>
+            </div>
+        </article>
+    </footer>
+
+    <!-- darkness -->
+    <div class="row darkness">
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+
+
+
+        <article class="face">
+            <span>(OvO)</span><span>(OvO)</span><span>(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)(OvO)</span>
+        </article>
+        <div class="messageFromDarkness">
+            <article>
+                <p>聽說……</p>
+                <p>如果不好好招待虛擬偶像，</p>
+                <p>將會有不幸的事發生喔。</p>
+                <button class="btn btn-primary mt-3"><a href="https://www.facebook.com/zyouga/" target="_blank"
+                        type="button">去給嫦娥姊妹按讚</a></button>
+            </article>
+        </div>
+    </div>
+
+
+    <script>
+        $(function () {
+            // 功能已停用
+            // let lemonUrl = ['images/backGroundLemon.png', 'images/backGroundLemon2.png', 'images/backGroundLemon3.png'];
+
+            // $('.lemonSwitch').click(function () {
+            //     $('#mainLemonPic').prop('src', `${lemonUrl[$(this).index()]}`);
+            //     $(this).addClass('shadow').siblings('a').removeClass('shadow');
+            // });
+
+            // 滑動後nav加陰影
+            $(window).on('scroll', function (e) {
+                if ($('header').offset().top > 0) {
+                    $('header').addClass('shadow');
+                };
+                if ($(window).height() + $(window).scrollTop() >= $('body').height()) {
+                    $('footer article').fadeIn(1000);
+                }
+            });
+
+            // 點選周邊愛心按鈕
+            let shoppingCar = (localStorage.getItem('shoppingCar') || '' ).split(',');
+            // for(let i=0;i<$('i.bi').length;i++){
+            //     shoppingCar[i]=false;
+            // };
+            for(let i=0;i<$('i.bi').length;i++){
+                console.log(shoppingCar[i]);
+                if(shoppingCar[i]=='picked'){
+                    console.log('notPicked');
+                    $(`i.bi:eq(${i})`).toggleClass('bi-heart bi-heart-fill');
+                }
+            }
+            $('i.bi').click(function(){
+                $(this).hide().toggleClass('bi-heart bi-heart-fill').fadeIn(300,'linear');
+                // console.log($('i.bi').index(this));//獲取點擊元素為第幾個愛心按鈕
+
+                if($(this).hasClass('bi-heart-fill')){
+                    console.log($('i.bi').index(this),'filled');
+                    shoppingCar[$('i.bi').index(this)]='picked';
+                }else{
+                    shoppingCar[$('i.bi').index(this)]='notPicked';
+                }
+                console.log(shoppingCar.join());
+                localStorage.setItem('shoppingCar',shoppingCar.join());
+            })
+
+            // 不給粉專按讚的人都要 fall into darkness
+            $('#fallIntoDarkness').click(function () {
+                let fallDivs = $('.darkness>.col-2');
+                let waitFall = 0;
+                for (let i = 0; i < $('.darkness>.col-2').length; i++) {
+                    let wait = Math.floor(Math.random() * 1500 + 500);
+                    if (wait > waitFall) { waitFall = wait };
+                    $(`.darkness>.col-2:eq(${i})`).slideDown(wait);
+                };
+                let procedure = 0;
+                setTimeout(function () {
+                    $('.messageFromDarkness article').css('display', 'inline-block');
+                    $(`.messageFromDarkness p:eq(0)`).fadeIn(1000);
+                }, waitFall, interval);
+                var interval = setInterval(function () {
+                    if (procedure < 3) {
+                        $('.messageFromDarkness article').css('display', 'inline-block');
+                        $(`.messageFromDarkness p:eq(${procedure})`).fadeIn(1000);
+                    } else if (procedure < 5) {
+                        $(`.face span:eq(${procedure - 3})`).show();
+                    } else if (procedure = 5) {
+                        $(`.face span:eq(2)`).show();
+                        $('.messageFromDarkness button').fadeIn(1000);
+                    } else {
+                        clearInterval(interval);
+                    }
+                    procedure++;
+                }, (procedure + 1) * 1000);
+
+            });
+
+            // 手機特別版nav下拉式選單
+            $('ul.d-block.d-md-none').click(function () {
+                $(this).children('ul').slideToggle(250);
+            })
+        })
+    </script>
+</body>
+
+</html>
