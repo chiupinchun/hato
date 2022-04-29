@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邱品鈞——那個最自由的男人</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+    </script>
+    <style>
+        /* 共用 */
+        :root {
+            --headerHeight: 100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(235, 233, 233);
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* 常用 */
+        .w {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .jp {
+            display: none;
+        }
+
+        /* 一般 */
+        /* 頂部 */
+        .littleHato {
+            position: absolute;
+            z-index: 10;
+            width: 40px;
+        }
+
+        @media screen and (max-width: 767px) {
+            .littleHato {
+                display: none;
+            }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            z-index: 2;
+            width: 100%;
+            height: var(--headerHeight);
+            background-color: rgba(216, 112, 147, 0.815);
+        }
+
+        nav {
+            height: 100%;
+            background-color: rgba(243, 241, 132, 0.281);
+            text-align: center;
+            line-height: var(--headerHeight);
+            font: normal 700 26px/var(--headerHeight) 'microsoft yahei';
+        }
+
+        nav ul {
+            float: right;
+            padding: 0 20px;
+            width: 120px;
+        }
+
+        nav ul.left>a {
+            margin-left: -20px;
+        }
+
+        nav ul.right>a {
+            margin-right: -50px;
+        }
+
+        nav ul.left {
+            float: left;
+        }
+
+        header nav li {
+            display: none;
+            position: relative;
+            /* padding: 0 20px; */
+            background-color: rgba(243, 241, 132, 0.281);
+            font: normal 400 18px/36px 'microsoft yahei';
+        }
+
+        header nav li.liApear {
+            display: block;
+        }
+
+        header nav .left li {
+            right: 20px;
+        }
+
+        header nav .right li {
+            left: 20px;
+        }
+        @media screen and (max-width: 767px){
+            header {
+                width: 100vw;
+            }
+            ul.right {
+                display: none;
+            }
+            header nav {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+            }
+            header nav ul {
+                padding: 0;
+                width: auto;
+                text-align: right;
+                font-size: 1.3rem;
+            }
+            header nav span {
+                font-size: 1.3rem;
+            }
+            header nav .left li {
+                right: 0px;
+                padding: 0 20px;
+                text-align: center;
+            }
+        }
+
+        /* 身體 */
+        /* main */
+        .main {
+            /* position: relative; */
+            margin-top: var(--headerHeight);
+            height: 800px;
+            background: url(images/backGroundLemon.png) no-repeat;
+            background-size: 100%;
+        }
+
+        .main article {
+            float: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 100%;
+        }
+
+        .main article p {
+            text-align: left;
+        }
+
+        .main article .textRight {
+            text-align: right;
+        }
+
+        .main article h2 {
+            position: relative;
+            right: 60px;
+        }
+
+        .main aside {
+            position: fixed;
+            margin-top: 100px;
+            /* padding-top: 20px; */
+            width: 200px;
+            height: 300px;
+            /* border-radius: 10px; */
+            text-align: center;
+            background-color: rgba(135, 207, 235, .5);
+        }
+
+        .main aside button {
+            float: right;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(135, 207, 235);
+            border: 0;
+        }
+
+        .main aside h2 {
+            margin-top: 20px;
+        }
+
+        .main aside p {
+            margin: 15px 0;
+        }
+
+        .main aside p a {
+            color: blue;
+        }
+
+        .leftAd {
+            right: 50%;
+            margin-right: 570px;
+        }
+
+        .rightAd {
+            left: 50%;
+            margin-left: 570px;
+        }
+
+        @media screen and (max-width: 767px){
+            .main {
+                height: 45vh;
+                background-repeat: no-repeat;
+            }
+            .main article {
+                float: none;
+                padding: 0 5vw;
+            }
+            .main article h2 {
+                position: static;
+                margin: 0 auto;
+            }
+        }
+
+        /* introduce */
+        .introduce {
+            position: relative;
+            padding: 15px 0;
+            background-image: url(images/backGroundCloud.png);
+        }
+
+        .introduce p {
+            margin: 5px 0;
+            width: 80%;
+            line-height: 30px;
+            text-indent: 2em;
+        }
+
+        .introduce article button {
+            position: absolute;
+            /* margin: 15px 50px 0 0; */
+            right: 50px;
+            top: 30px;
+        }
+
+        @media screen and (max-width: 767px){
+            .introduce article button {
+                right: 1vw;
+            }
+            .introduce p {
+                width: 77%;
+            }
+        }
+
+        /* comment */
+        .divFlex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .comment {
+            padding: 15px 0 10px 1.5em;
+            width: 500px;
+            border-radius: 10px;
+        }
+
+        .comment button {
+            float: right;
+            margin: 12px 20px 0 0;
+            width: 50px;
+            height: 30px;
+            border-radius: 10px;
+        }
+
+        .comment textarea {
+            padding: 5px;
+            width: 400px;
+            height: 50px;
+            border-radius: 10px;
+        }
+
+        .comment ul {
+            padding-right: 90px;
+        }
+
+        .comment ul li {
+            margin-top: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .about {
+            width: 400px;
+            text-align: left;
+        }
+
+        .about li {
+            margin-top: 5px;
+        }
+
+        @media screen and (max-width: 767px){
+            .divFlex {
+                display: block;
+            }
+            .comment {
+                box-sizing: border-box;
+                padding: .6rem 0 .4rem 1rem;
+                width: 100vw;
+            }
+            .comment textarea {
+                width: auto;
+            }
+            .about h2 {
+                text-align: center;
+            }
+            .about ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img id="followMouse" class="littleHato" src="images/mouseHato.png" alt="">
+
+
+
+    <!-- 頂端、導航欄 -->
+    <header>
+        <nav class="w">
+            <ul id="leftMenu" class="left ch">
+                <a href="javascript:;">目錄<small>▼</small></a>
+                <li><a href="#main">頂端</a></li>
+                <li><a href="#introduce">介紹</a></li>
+                <li><a href="#comment">留言</a></li>
+            </ul>
+            <ul id="leftMenu" class="left jp">
+                <a href="javascript:;">目次<small>▼</small></a>
+                <li><a href="#main">トップ</a></li>
+                <li><a href="#introduce">自己紹介</a></li>
+                <li><a href="#comment">コメント</a></li>
+            </ul>
+            <span class="ch">邱品鈞——那個最自由的男人</span>
+            <span class="jp">キュウ——最も自由な男</span>
+            <ul id="rightMenu" class="right">
+                <a href="javascript:;">語言<small>▼</small></a>
+                <li><a id="changeToCh" href="javascript:;">中文</a></li>
+                <li><a id="changeToJp" href="javascript:;">日本語</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主內容 -->
+    <!-- main -->
+    <main id="main" class="w main">
+        <article>
+            <p class="textRight ch">隨口妙言佳句，</p>
+            <p class="ch">抹去萬人憂愁。</p>
+            <p class="textRight ch">不受常理拘束，</p>
+            <p class="ch">任憑創意遨遊。</p>
+            <h2 class="ch">全世界最自由的男人——邱品鈞</h2>
+        </article>
+        <article>
+            <p class="textRight jp">口開ければ名言</p>
+            <p class="jp">正にユーモアの塊</p>
+            <p class="textRight jp">常識に囚われず</p>
+            <p class="jp">時代を作って行く</p>
+            <h2 class="jp">世界中最も自由な男——キュウ</h2>
+        </article>
+        <aside class="leftAd">
+            <button type="button">×</button>
+            <h2>廣告</h2>
+            <p>誠徵贊助商</p>
+            <p>請<a href="mailto:fansintuesan@gmail.com">點此</a>與我聯繫</p>
+            <img src="images/lemonCry.png" alt="">
+        </aside>
+        <aside class="rightAd">
+            <button type="button">×</button>
+            <h2>廣告</h2>
+            <p>誠徵贊助商</p>
+            <p>請<a href="mailto:fansintuesan@gmail.com">點此</a>與我聯繫</p>
+            <img src="images/lemonCry.png" alt="">
+        </aside>
+    </main>
+
+    <!-- introduce -->
+    <main id="introduce" class="w introduce">
+        <article class="ch">
+            <button id="removeIntroduce" type="button">←我不在乎</button>
+            <p>邱品鈞，生於1996年1月12日，與外公外婆同居，還有一個目前就讀資管系的妹妹，假日經常會來作客。程式語言是他們共同的興趣，他們總是一起學習，互相勉勵。</p>
+            <p>大學畢業後，品鈞陸續嘗試過許多不同的工作，其中包含餐飲業、專利工程師、客服人員，但他發現，這些都不是他所追求的，只有任憑雙手在鍵盤上舞動之時，他才能感受到真正的充實，以及自己的價值。</p>
+            <p>因此，儘管品鈞已在一間知名科技公司任職滿一年，熟悉工作內容並且結識了一群值得信賴的夥伴，他仍選擇捨棄一步一步經營起來的一切，全心投入於程式開發。</p>
+            <p>目前，品鈞只是一名以成為全端工程師為目標努力著的低端工程師，但他有一個遠大的夢想——成立一間名為<strong>檸檬森林</strong>的企業，而上面那張檸檬圖正是它的象徵。</p>
+            <p>「努力到成功為止就會成功。」這是品鈞經常掛在嘴邊的口頭禪。或許聽起來像廢話，但確實如他所說，哪怕道阻且長，只要不畏艱難、永不放棄，相信有朝一日，他將會完成他的夢想。所以，就讓我們一同見證他的成長吧～</p>
+        </article>
+        <article class="jp">
+            <button id="removeIntroduceJp" type="button">←興味がない</button>
+            <p>キュウ(1996年1月12日-)は、祖父と祖母と共に暮らし、大学を通っている妹がいる。兄弟ともプログラムに興味を持つが故、休日、妹はよく共にプログラムを勉強しにキュウを訪ねる。</p>
+            <p>大学卒業して以来、キュウは飲食店・特許技術者・CSなど、色々な仕事を経験してきた。しかし、彼はプログラムを組むときのみ、人生を充実させ、自分の価値を感じられると気づいた。</p>
+            <p>そのため、キュウは有名なIT企業に務めて1年、仕事が慣れた上に信頼できる仲間もできたのに、彼は仕事をやめ、プログラムの開発に専念した。</p>
+            <p>現在、キュウはまだ胸を張れるほどのWebデザイナーではないかもしれない。しかし彼には大きな夢がある。それは即ち、<strong>レモンフォーレスト</strong>という会社を立ち上げること。因みに、上のレモンの絵は会社の象徴である。
+            </p>
+            <p>キュウ曰く：「成功するまで努力すれば成し遂げる。」当たり前のように聞こえるが、実際は困難を恐れず、諦めず、最後まで進んでいけば、どのような夢でも叶えられるでしょう。だから、彼の成長を見届けましょう。</p>
+        </article>
+    </main>
+    <!-- comment -->
+    <div id="comment" class="w divFlex">
+        <fieldset class="comment">
+            <legend class="ch">留言板</legend>
+            <legend class="jp">コメント</legend>
+            <button id="toComment" type="button"><span class="ch">送出</span><span class="jp">送信</span></button>
+            <textarea name="" id="commentTextarea" cols="30" rows="10"></textarea>
+            <ul></ul>
+            <!--有時間的話再做顯示留言時間-->
+        </fieldset>
+        <div class="about">
+            <h2>About me</h2>
+            <ul>
+                <li><a href="mailto:fansintuesan@gmail.com">email</a></li>
+                <li><a class="secret" href="javascript:;">twitter</a></li>
+                <li><a class="secret" href="javascript:;">facebook</a></li>
+                <li><a class="secret" href="javascript:;">ig</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        $(function () {
+            // let followMouse = document.querySelector('#followMouse');
+            // let body = document.querySelector('body');
+
+            // let leftMenus=document.querySelectorAll('.left');
+            // let rightMenu=document.querySelector('#rightMenu');
+
+            // let changeToCh=document.querySelector('#changeToCh');
+            // let changeToJp=document.querySelector('#changeToJp');
+            // let languegeCh=document.querySelectorAll('.ch');
+            // let languegeJp=document.querySelectorAll('.jp');
+            let isCh = true;
+
+            // let removeIntroduce=document.querySelector('#removeIntroduce');
+            // let removeIntroduceJp=document.querySelector('#removeIntroduceJp');
+            // let introduceArticle=document.querySelector('.introduce article.ch');
+            // let introduceArticleJp=document.querySelector('.introduce article.jp');
+
+            // let toComment=document.querySelector('#toComment');
+            // let commentTextarea=document.querySelector('#commentTextarea');
+            // let commentBlock=document.querySelector('.comment ul');
+            // let secret=document.querySelectorAll('.secret');
+
+            let mainPics = ['url(images/backGroundLemon.png)', 'url(images/backGroundLemon2.png)', 'url(images/backGroundLemon3.png)']
+            let iOfPics = 0;
+
+            // body.addEventListener("mousemove", function (event) {
+            //     followMouse.style.top = event.pageY + 10 + "px";
+            //     followMouse.style.left = event.pageX + 10 + "px";
+            // })
+            $('body').mousemove(function (event) {
+                $('#followMouse').css({ top: `${event.pageY + 10}px`, left: `${event.pageX + 10}px` });
+            }).mousedown(function () {
+                $('#followMouse').prop('src', 'images/mouseHatoClick.png');
+            }).mouseup(function () {
+                $('#followMouse').prop('src', 'images/mouseHato.png');
+            })
+
+            // for(let j=0;j<leftMenus.length;j++){
+            //     leftMenus[j].addEventListener("mouseover",function(){
+            //     for(let i=0;i<leftMenu[j].childNodes.length;i++){
+            //         if(leftMenu[j].childNodes[i].nodeType==1)leftMenu[j].childNodes[i].classList.add('liApear');
+            //     }
+            // })
+            // }
+
+            // for(let j=0;j<leftMenus.length;j++){
+            //     leftMenus[j].addEventListener("mouseleave",function(){
+            //     for(let i=0;i<leftMenu[j].childNodes.length;i++){
+            //         if(leftMenu[j].childNodes[i].nodeType==1)leftMenu[j].childNodes[i].classList.remove('liApear');
+            //     }
+            // })
+            // }
+
+            // rightMenu.addEventListener("mouseover",function(){
+            //     for(let i=0;i<rightMenu.childNodes.length;i++){
+            //         if(rightMenu.childNodes[i].nodeType==1)rightMenu.childNodes[i].classList.add('liApear');
+            //     }
+            // })
+            // rightMenu.addEventListener("mouseleave",function(){
+            //     for(let i=0;i<rightMenu.childNodes.length;i++){
+            //         if(rightMenu.childNodes[i].nodeType==1)rightMenu.childNodes[i].classList.remove('liApear');
+            //     }
+            // })
+            $('nav ul').hover(function () {
+                $(this).children('li').stop().slideToggle(300);
+            });
+
+            // changeToCh.addEventListener("click",function(){
+            //     isCh=true;
+            //     for(let i=0;i<languegeJp.length;i++){
+            //         languegeJp[i].style.display="none";
+            //     }
+            //     for(let i=0;i<languegeCh.length;i++){
+            //         languegeCh[i].style.display="block";
+            //     }
+            //     languegeCh[1].style.display="inline"
+            // })
+            // changeToJp.addEventListener("click",function(){
+            //     isCh=false;
+            //     for(let i=0;i<languegeCh.length;i++){
+            //         languegeCh[i].style.display="none";
+            //     }
+            //     for(let i=0;i<languegeJp.length;i++){
+            //         languegeJp[i].style.display="block";
+            //     }
+            //     languegeJp[1].style.display="inline"
+            // })
+            $('#changeToCh').click(function () {
+                isCh = true;
+                $('.jp').hide();
+                $('.ch').show();
+                // $('.ch:eq(1)').css({display:'inline'});
+            })
+            $('#changeToJp').click(function () {
+                isCh = false;
+                $('.ch').hide();
+                $('.jp').show();
+                // $('.jp:eq(1)').css({display:'inline'});
+            })
+
+            setInterval(function () {
+                $('.main').css({ background: mainPics[iOfPics]+' no-repeat', backgroundSize: '100%' });
+                iOfPics++;
+                if (iOfPics == 3) iOfPics = 0;
+            }, 500);
+
+            $('.main aside button').click(function () {
+                alert('關不掉哦～\n乖乖成為贊助商吧XD')
+            })
+
+
+            // removeIntroduce.addEventListener("click",function(){
+            //     introduceArticle.removeChild(introduceArticle.childNodes[3]);
+            //     introduceArticle.removeChild(introduceArticle.childNodes[3]);
+            // })
+            // removeIntroduceJp.addEventListener("click",function(){
+            //     introduceArticleJp.removeChild(introduceArticleJp.childNodes[3]);
+            //     introduceArticleJp.removeChild(introduceArticleJp.childNodes[3]);
+            // })
+            $('.introduce button').click(function () {
+                $(this).next().remove();
+            })
+
+            // toComment.addEventListener("click",function(){
+            //     let li = document.createElement('li');
+            //     li.innerHTML=commentTextarea.value;
+            //     commentTextarea.value="";
+            //     commentBlock.insertBefore(li,commentBlock.childNodes[0]);
+            // })
+            $('#toComment').click(function () {
+                $('.comment ul').prepend($(`<li>${$('#commentTextarea').prop('value')}</li>`));
+                $('#commentTextarea').prop({ value: null });
+            })
+
+            // for(let i=0;i<secret.length;i++){
+            //     secret[i].addEventListener("click",function(){
+            //         if(isCh){
+            //             alert('想知道嗎？不告訴你～\n欸嘿☆');
+            //         }else{
+            //             alert('教えてほしい？\nだが断る！')
+            //         }
+
+            //     })
+            // }
+            $('.secret').click(function () {
+                if (isCh) {
+                    alert('想知道嗎？不告訴你～\n欸嘿☆');
+                } else {
+                    alert('教えてほしい？\nだが断る！');
+                }
+            })
+
+        })
+
+
+    </script>
+</body>
+
+</html>
